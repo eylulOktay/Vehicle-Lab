@@ -1,7 +1,7 @@
 package vehicle;
 import java.util.List;
 
-public class Car {
+public abstract class  Car {
     public Car(String make, String model, double startingMileage){
 
     }
@@ -29,9 +29,7 @@ public class Car {
     public String getModel(){
         return "";
     }
-    public double getRemainingRange(){
-        return 0;
-    }
+    public abstract double getRemainingRange();
     protected void addMileage(double miles){
 
     }
