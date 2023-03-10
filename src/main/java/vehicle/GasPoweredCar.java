@@ -1,12 +1,13 @@
 package vehicle;
 
 public abstract class GasPoweredCar extends Car {
+
     public GasPoweredCar(String make, String model, double startingMileage, double mpg, double fuelCapacityGallons) {
-        System.out.println();
+        super(make, model, startingMileage);
     }
 
     public GasPoweredCar (String make, String model, double mpg, double fuelCapacityGallons){
-
+        super(make, model);
     }
 
     public void drive(double miles) {
@@ -14,15 +15,15 @@ public abstract class GasPoweredCar extends Car {
     }
 
     public double getMPG() {
-        System.out.println();
+        return 0;
     }
 
     public double getFuelLevel() {
-        System.out.println();
+        return 0;
     }
 
     public double getFuelCapacity() {
-        
+        return 0;
     } 
 
     public void refillTank()  {
@@ -30,7 +31,7 @@ public abstract class GasPoweredCar extends Car {
     }
 
     public double getRemainingRange() {
-
+        return 0;
     }
 
     public void refillTank(double gallons) {
