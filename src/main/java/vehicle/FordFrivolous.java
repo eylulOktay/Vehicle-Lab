@@ -25,7 +25,7 @@ public class FordFrivolous extends GasPoweredCar implements Flying, SelfDriving{
 
     public void fly(double miles){
         if (miles<0){
-            throw new IllegalArgumentException("Can't fly negative amount")
+            throw new IllegalArgumentException("Can't fly negative amount");
         }
         if (canFly(miles)){
             
