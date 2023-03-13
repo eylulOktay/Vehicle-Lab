@@ -28,7 +28,7 @@ public class ElectricCar extends Car{
         if(miles > getRemainingRange()){
             throw new IllegalArgumentException();
         }
-
+        addMileage(miles);
         decreaseCharge(miles);
     }
    
