@@ -24,6 +24,7 @@ public class ElectricCar extends Car{
     }
    
     public double getRemainingRange() {
+        return(c_maxMiles - miles);
 
     }
    
