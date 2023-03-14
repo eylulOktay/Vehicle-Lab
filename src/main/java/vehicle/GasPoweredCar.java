@@ -8,7 +8,7 @@ public abstract class GasPoweredCar extends Car {
 
     public GasPoweredCar(String make, String model, double startingMileage, double mpg, double fuelCapacityGallons) {
         super(make, model, startingMileage);
-        this.mileage = startingMileage;
+        
         this.fuelCapacity = fuelCapacityGallons;
         this.mpg = mpg;
         fuelLevel = fuelCapacity;
@@ -20,18 +20,18 @@ public abstract class GasPoweredCar extends Car {
 
     public GasPoweredCar (String make, String model, double mpg, double fuelCapacityGallons){
         super(make, model);
-        mileage = 0;
+       
         if(mpg <= 0 || fuelCapacityGallons <= 0) {
             throw new IllegalArgumentException();
         }
     }
 
     public void drive(double miles) {
-        if(miles <= 0 || miles > fuelLevel * mpg) {
+        if(miles <= 0 || miles > getRemainingRange()) {
             throw new IllegalArgumentException();
         }
-        mileage += miles;
-        fuelLevel -= miles/mpg;
+        addMileage(miles);
+        decreaseFuelLevel(miles/getMPG());
     }
 
     public double getMPG() {
