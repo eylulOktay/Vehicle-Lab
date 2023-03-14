@@ -51,14 +51,16 @@ public class Group_3_4_Tests {
     }
     @Test
     public void teslaModelZSetup() {
-        HondaAccordian honda = new HondaAccordian(2018);
-        assertEquals(0, honda.getMileage(), 0.1, "Default mileage should be zero.");
-        assertEquals(14.5, honda.getFuelCapacity(),  0.1, "Initial fuel capacity not correct.");
-        assertEquals(honda.getFuelCapacity(), honda.getFuelLevel(), 0.1, "The car should begin full.");
-        assertEquals(33.2, honda.getMPG(), 0.1, "Initial mpg not correct.");
-        assertEquals(honda.getFuelCapacity() * honda.getMPG(), honda.getRemainingRange(), 0.1,
-                "Remaining range of car not correct at creation.");
-        assertEquals("2018 Honda Accordian (0.0 mi)", honda.toString(), "toString does not match");
+        TeslaModelZ tesla = new TeslaModelZ(77);
+        assertEquals(0, tesla.getMileage(), 0.1, "Default mileage should be zero.");
+        assertEquals("Z77", tesla.getModel(), "Model is not correct.");
+        assertEquals(tesla.getMaxRange(), 340, 0.1, "Max range should be 340.");
+        assertEquals(tesla.getMaxRange(), tesla.getRemainingRange(), 0.1, "Initial remaining range should be max range.");
+        assertEquals(77, tesla.getModelNum(),
+                "Model num should be 77.");
+        assertEquals("Telsa Z77 (0.0 mi)", tesla.toString(), "toString does not match");
+        TeslaModelZ tesla2 = new TeslaModelZ(10,25);
+        assertEquals(10, tesla2.getMileage(), 0.1, "Starting mileage should be ten.");
     }
 
     @Test
