@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class Sample_HondaAccordian_Tests {
+public class Group_3_4_Tests {
 
     @Test
     public void hondaConstructorTest1() {
