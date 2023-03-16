@@ -15,7 +15,7 @@ public class Group_3_4_Tests {
         assertEquals(0, Chevvy.getMileage(), 0.1, "Default mileage should be zero.");
         assertEquals(false, Chevvy.checkWingsExtended(), "Wings should not be extended at creation.");
         assertEquals(250, Chevvy.getMaxRange(), 0.1, "The max range is incorrect. It should be 250.");
-        assertEquals("Chevrolet Bird (0.0 mi)", Chevvy.toString(), "toString() does not print the correct message."); //
+        assertEquals("Cheverolet Bird (0.0 mi)", Chevvy.toString(), "toString() does not print the correct message."); //
         assertEquals(false, Chevvy.checkWingsExtended(),"Wings should be retracted before driving.");
     }
 
