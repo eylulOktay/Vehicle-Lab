@@ -51,6 +51,7 @@ public class Group_3_4_Tests {
     }
     @Test
     public void teslaModelZSetup() {
+        
         TeslaModelZ tesla = new TeslaModelZ(77);
         assertEquals(0, tesla.getMileage(), 0.1, "Default mileage should be zero.");
         assertEquals("Z77", tesla.getModel(), "Model is not correct.");
