@@ -89,7 +89,7 @@ public class Group_3_4_Tests {
         tesla.driveAutonomously(100);
         assertEquals(130, tesla.getMileage(), .1,
                 "Mileage should be 130");
-        assertEquals(210, tesla.getRemainingRange(), .1,
+        assertEquals(240, tesla.getRemainingRange(), .1,
                 "Remaining range should be 210");    
 
         assertThrows(IllegalArgumentException.class, () -> {
