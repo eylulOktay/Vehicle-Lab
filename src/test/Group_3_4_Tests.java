@@ -65,30 +65,41 @@ public class Group_3_4_Tests {
 
     @Test
     public void teslaModelZDrive() {
-        HondaAccordian honda = new HondaAccordian(2018);
+        
+        TeslaModelZ tesla = new TeslaModelZ(77);
 
         assertThrows(IllegalArgumentException.class, () -> {
-            honda.drive(-1);
+            tesla.canDrive(-1);
         }, "Driving mileage cannot be negative.");
 
-       assertTrue(honda.canDrive(30), "canDrive should be true");
-       honda.drive(30);
-        assertEquals(30, honda.getMileage(), .1, "Mileage should be 30 after first drive.");
-
-        honda.drive(200);
-        assertEquals(230, honda.getMileage(), .1, "Mileage should be 230 after second drive.");
-
-        assertEquals(honda.getFuelCapacity() * honda.getMPG() - 230, honda.getRemainingRange(), .1,
-                "Remaining range of car not correct after driving twice.");
-
-        assertFalse(honda.canDrive(252), "Driving 252 should fail.");
-        assertTrue(honda.canDrive(251), "Driving 251 should succeed.");
-
-        honda.drive(251);
-        assertEquals(481, honda.getMileage(), .1, "Mileage should be 481 after third drive.");
+       assertTrue(tesla.canDrive(0), "canDrive should be true");
+       assertTrue(tesla.canDrive(340), "canDrive should be true");
+       assertFalse(tesla.canDrive(341), "canDrive should be false");
+       tesla.drive(30);
+        assertEquals(30, tesla.getMileage(), .1, "Mileage should be 30 after first drive.");
+        assertFalse(tesla.canDrive(340), "canDrive should be false");
+        assertEquals(310, tesla.getRemainingRange(), .1, "Remaining range should be 310 after first drive.");
+        tesla.recharge();
+        assertEquals(340, tesla.getRemainingRange(), .1, "Remaining range should be 340 after recharging.");
+        assertEquals(tesla.getMaxRange(), tesla.getRemainingRange(), .1, "Remaining range should be same as max range after recharging.");
 
         assertThrows(IllegalArgumentException.class, () -> {
-            honda.drive(5);
-        }, "Driving beyond empty should fail.");
+            tesla.driveAutonomously(-1);
+        }, "Driving distance should not be negative");
+        tesla.driveAutonomously(100);
+        assertEquals(130, tesla.getMileage(), .1,
+                "Mileage should be 130");
+        assertEquals(210, tesla.getRemainingRange(), .1,
+                "Remaining range should be 210");    
+
+        assertThrows(IllegalArgumentException.class, () -> {
+                tesla.drive(230);
+        }, "Driving beyond how much you have should fail.");
+        tesla.driveAutonomously(230);
+        assertEquals(340, tesla.getMileage(), .1, "Mileage should be 340 after this drive.");
+        assertEquals(0, tesla.getRemainingRange(), .1, "Should have no range left.");
+        assertThrows(IllegalArgumentException.class, () -> {
+            tesla.drive(-1);
+        }, "You can't drive negative.");
     }
 }
