@@ -61,7 +61,7 @@ public class Group_3_4_Tests {
         assertEquals(tesla.getMaxRange(), tesla.getRemainingRange(), 0.1, "Initial remaining range should be max range.");
         assertEquals(77, tesla.getModelNum(),
                 "Model num should be 77.");
-        assertEquals("Telsa Z77 (0.0 mi)", tesla.toString(), "toString does not match");
+        assertEquals("Tesla Z77 (0.0 mi)", tesla.toString(), "toString does not match");
         TeslaModelZ tesla2 = new TeslaModelZ(10,25);
         assertEquals(10, tesla2.getMileage(), 0.1, "Starting mileage should be ten.");
     }
@@ -93,13 +93,13 @@ public class Group_3_4_Tests {
         assertEquals(130, tesla.getMileage(), .1,
                 "Mileage should be 130");
         assertEquals(240, tesla.getRemainingRange(), .1,
-                "Remaining range should be 210");    
+                "Remaining range should be 240");    
 
         assertThrows(IllegalArgumentException.class, () -> {
-                tesla.drive(230);
+                tesla.drive(270);
         }, "Driving beyond how much you have should fail.");
-        tesla.driveAutonomously(230);
-        assertEquals(340, tesla.getMileage(), .1, "Mileage should be 340 after this drive.");
+        tesla.driveAutonomously(280);
+        assertEquals(370, tesla.getMileage(), .1, "Mileage should be 370 after this drive.");
         assertEquals(0, tesla.getRemainingRange(), .1, "Should have no range left.");
         assertThrows(IllegalArgumentException.class, () -> {
             tesla.drive(-1);
