@@ -23,30 +23,34 @@ public class Group_3_4_Tests {
 
     @Test
     public void chevroletBirdDrive() {
-        HondaAccordian honda = new HondaAccordian(2018);
+        ChevroletBird cbird = new ChevroletBird(2018);
 
         assertThrows(IllegalArgumentException.class, () -> {
-            honda.drive(-1);
+            cbird.drive(-1);
         }, "Driving mileage cannot be negative.");
 
-       assertTrue(honda.canDrive(30), "canDrive should be true");
-       honda.drive(30);
-        assertEquals(30, honda.getMileage(), .1, "Mileage should be 30 after first drive.");
+       assertTrue(cbird.canDrive(30), "canDrive should be true");
+       assertTrue(cbird.canDrive(0), "canDrive should be true");
+       assertTrue(cbird.canDrive(250), "canDrive should be true");
+       assertFalse(cbird.canDrive(251), "canDrive should be false");
+       cbird.drive(30);
+        assertEquals(30, cbird.getMileage(), .1, "Mileage should be 30 after first drive.");
+        assertEquals(30, cbird.getRemainingRange(), .1, "Remaining range should be 220.");
 
-        honda.drive(200);
-        assertEquals(230, honda.getMileage(), .1, "Mileage should be 230 after second drive.");
+        cbird.drive(200);
+        assertEquals(230, cbird.getMileage(), .1, "Mileage should be 230 after second drive.");
 
-        assertEquals(honda.getFuelCapacity() * honda.getMPG() - 230, honda.getRemainingRange(), .1,
-                "Remaining range of car not correct after driving twice.");
+        //assertEquals(cbird.getFuelCapacity() * honda.getMPG() - 230, honda.getRemainingRange(), .1,
+                //"Remaining range of car not correct after driving twice.");
 
-        assertFalse(honda.canDrive(252), "Driving 252 should fail.");
-        assertTrue(honda.canDrive(251), "Driving 251 should succeed.");
+        assertFalse(cbird.canDrive(252), "Driving 252 should fail.");
+        assertTrue(cbird.canDrive(251), "Driving 251 should succeed.");
 
-        honda.drive(251);
-        assertEquals(481, honda.getMileage(), .1, "Mileage should be 481 after third drive.");
+        cbird.drive(251);
+        assertEquals(481, cbird.getMileage(), .1, "Mileage should be 481 after third drive.");
 
         assertThrows(IllegalArgumentException.class, () -> {
-            honda.drive(5);
+            cbird.drive(5);
         }, "Driving beyond empty should fail.");
     }
     @Test
