@@ -11,14 +11,12 @@ public class Group_3_4_Tests {
 
     @Test
     public void chevroletBirdSetup() {
-        ChevroletBird Chevvy = new ChevroletBird(2018);
+        ChevroletBird Chevvy = new ChevroletBird();
         assertEquals(0, Chevvy.getMileage(), 0.1, "Default mileage should be zero.");
-        assertEquals(false, Chevvy.checkWingsExtended(),  0.1, "Wings should not be extended at creation.");
-        assertEquals(250, Chevvy.c_maxMiles(), 0.1, "The max range is incorrect. It should be 250.");
-        assertEquals(Chevvy.getRemainingRange(), Chevvy.getMaxRange(), 0.1, "Remaining range is incorrect."); //
-        assertEquals(honda.getFuelCapacity() * honda.getMPG(), honda.getRemainingRange(), 0.1,
-                "Remaining range of car not correct at creation.");
-        assertEquals("2018 Honda Accordian (0.0 mi)", honda.toString(), "toString does not match");
+        assertEquals(false, Chevvy.checkWingsExtended(), "Wings should not be extended at creation.");
+        assertEquals(250, Chevvy.getMaxRange(), 0.1, "The max range is incorrect. It should be 250.");
+        assertEquals("Chevrolet Bird (0.0 mi)", Chevvy.toString(), "toString() does not print the correct message."); //
+        assertEquals(false, Chevvy.checkWingsExtended(),"Wings should be retracted before driving.");
     }
 
     @Test
