@@ -21,7 +21,7 @@ public class Group_3_4_Tests {
 
     @Test
     public void chevroletBirdDrive() {
-        ChevroletBird cbird = new ChevroletBird(2018);
+        ChevroletBird cbird = new ChevroletBird();
 
         assertThrows(IllegalArgumentException.class, () -> {
             cbird.drive(-1);
@@ -33,7 +33,7 @@ public class Group_3_4_Tests {
        assertFalse(cbird.canDrive(251), "canDrive should be false");
        cbird.drive(30);
         assertEquals(30, cbird.getMileage(), .1, "Mileage should be 30 after first drive.");
-        assertEquals(30, cbird.getRemainingRange(), .1, "Remaining range should be 220.");
+        assertEquals(220, cbird.getRemainingRange(), .1, "Remaining range should be 220.");
 
         cbird.drive(200);
         assertEquals(230, cbird.getMileage(), .1, "Mileage should be 230 after second drive.");
