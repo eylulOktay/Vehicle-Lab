@@ -45,8 +45,8 @@ public abstract class  Car {
         c_mileage += miles;
     }
     public int roadTrip(List<Double> milesEachDay){
-        for (Double miles : milesEachDay){
-            if (miles<0){
+        for (int i=0;i<milesEachDay.size();i++){
+            if (milesEachDay.get(i)<0){
                 throw new IllegalArgumentException("Can't have negative amount");
             }
         }
