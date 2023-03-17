@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 public class Group_3_4_Tests {
@@ -50,7 +53,7 @@ public class Group_3_4_Tests {
         assertThrows(IllegalArgumentException.class, () -> {
             cbird.drive(5);
         }, "Driving beyond empty should fail.");
-        
+
     }
     @Test
     public void teslaModelZSetup() {
@@ -105,5 +108,13 @@ public class Group_3_4_Tests {
         assertThrows(IllegalArgumentException.class, () -> {
             tesla.drive(-1);
         }, "You can't drive negative.");
+        ArrayList<Double> days = new ArrayList<Double>();
+        days.add(10.0);
+        days.add(100.0);
+        days.add(200.0);
+        days.add(300.0);
+        assertEquals(3,tesla.roadTrip(null),"road trip should be 3 days");
+        assertEquals(30, tesla.getRemainingRange(), .1, "Should have 30 miles left.");
+
     }
 }
