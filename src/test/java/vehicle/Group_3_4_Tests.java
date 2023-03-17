@@ -113,7 +113,7 @@ public class Group_3_4_Tests {
         days.add(100.0);
         days.add(200.0);
         days.add(300.0);
-        assertEquals(3,tesla.roadTrip(null),"road trip should be 3 days");
+        assertEquals(3,tesla.roadTrip(days),"road trip should be 3 days");
         assertEquals(30, tesla.getRemainingRange(), .1, "Should have 30 miles left.");
 
     }
