@@ -15,11 +15,12 @@ public class Group_3_4_Tests {
     @Test
     public void chevroletBirdSetup() {
         ChevroletBird Chevvy = new ChevroletBird();
-        assertEquals(0, Chevvy.getMileage(), 0.1, "Default mileage should be zero.");
-        assertEquals(false, Chevvy.checkWingsExtended(), "Wings should not be extended at creation.");
-        assertEquals(250, Chevvy.getMaxRange(), 0.1, "The max range is incorrect. It should be 250.");
-        assertEquals("Cheverolet Bird (0.0 mi)", Chevvy.toString(), "toString() does not print the correct message."); //
-        assertEquals(false, Chevvy.checkWingsExtended(),"Wings should be retracted before driving.");
+        assertEquals(0, Chevvy.getMileage(), 0.1, "Verify mileage is 0..");
+        assertEquals(false, Chevvy.checkWingsExtended(), "Verify wings are not extended at creation.");
+        assertEquals(250, Chevvy.getMaxRange(), 0.1, "Confirm max range is 250 miles");
+        assertEquals(Chevvy.getRemainingRange(), Chevvy.getMaxRange(), "Confirm max range = remaining range");
+        assertEquals("Cheverolet Bird (0.0 mi)", Chevvy.toString(), "Verify toString matches 'Chevrolet Bird (0.0 mi)'."); //
+        assertEquals(false, Chevvy.checkWingsExtended(),"Verify wings retracted before driving");
     }
 
     @Test
@@ -108,6 +109,7 @@ public class Group_3_4_Tests {
         assertThrows(IllegalArgumentException.class, () -> {
             tesla.drive(-1);
         }, "You can't drive negative.");
+        tesla.recharge();
         ArrayList<Double> days = new ArrayList<Double>();
         days.add(10.0);
         days.add(100.0);
