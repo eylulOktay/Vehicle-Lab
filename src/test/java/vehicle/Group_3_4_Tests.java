@@ -108,6 +108,7 @@ public class Group_3_4_Tests {
         assertThrows(IllegalArgumentException.class, () -> {
             tesla.drive(-1);
         }, "You can't drive negative.");
+        tesla.recharge();
         ArrayList<Double> days = new ArrayList<Double>();
         days.add(10.0);
         days.add(100.0);
