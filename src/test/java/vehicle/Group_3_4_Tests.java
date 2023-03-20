@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -38,15 +39,35 @@ public class Group_3_4_Tests {
        cbird.drive(30);
         assertEquals(30, cbird.getMileage(), .1, "Mileage should be 30 after first drive.");
         assertEquals(220, cbird.getRemainingRange(), .1, "Remaining range should be 220.");
+        assertFalse(cbird.canDrive(250), "canDrive should be false");
+        cbird.recharge();
+        assertEquals(250, cbird.getRemainingRange(), .1, "Remaining range should be 250.");
+        assertEquals(cbird.getMaxRange(), cbird.getRemainingRange(), .1, "Remaining range should be 250.");
+        
+        assertThrows(IllegalArgumentException.class, () -> {
+            cbird.fly(-1);
+        }, "Flying mileage cannot be negative.");
+        cbird.fly(70);
+        assertEquals(30, cbird.getMileage(), .1, "Mileage should be 30 after flying");
+        assertEquals(150, cbird.getRemainingRange(), .1, "Remaining range should be 150");
+        assertTrue(cbird.checkWingsExtended(), "Wings should be extended");
+        cbird.drive(50);
+        assertFalse(cbird.checkWingsExtended(), "Wings should not be extended");
 
-        cbird.drive(200);
-        assertEquals(230, cbird.getMileage(), .1, "Mileage should be 230 after second drive.");
+        assertThrows(IllegalArgumentException.class, () -> {
+            cbird.drive(-1);
+        }, "Driving mileage cannot be negative.");
+        cbird.recharge();
+        List<Double> miles = new ArrayList<>(4);
+        miles.add(10.0);
+        miles.add(100.0);
+        miles.add(200.0);
+        miles.add(300.0);
+        cbird.roadTrip(miles);
+
 
         //assertEquals(cbird.getFuelCapacity() * honda.getMPG() - 230, honda.getRemainingRange(), .1,
                 //"Remaining range of car not correct after driving twice.");
-
-        assertFalse(cbird.canDrive(252), "Driving 252 should fail.");
-        assertTrue(cbird.canDrive(251), "Driving 251 should succeed.");
 
         cbird.drive(251);
         assertEquals(481, cbird.getMileage(), .1, "Mileage should be 481 after third drive.");
