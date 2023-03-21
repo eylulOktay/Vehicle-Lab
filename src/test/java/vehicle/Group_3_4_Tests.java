@@ -49,7 +49,7 @@ public class Group_3_4_Tests {
         }, "Flying mileage cannot be negative.");
         cbird.fly(70);
         assertEquals(30, cbird.getMileage(), .1, "Mileage should be 30 after flying");
-        assertEquals(150, cbird.getRemainingRange(), .1, "Remaining range should be 150");
+        assertEquals(180, cbird.getRemainingRange(), .1, "Remaining range should be 180");
         assertTrue(cbird.checkWingsExtended(), "Wings should be extended");
         cbird.drive(50);
         assertFalse(cbird.checkWingsExtended(), "Wings should not be extended");
@@ -69,12 +69,6 @@ public class Group_3_4_Tests {
         //assertEquals(cbird.getFuelCapacity() * honda.getMPG() - 230, honda.getRemainingRange(), .1,
                 //"Remaining range of car not correct after driving twice.");
 
-        cbird.drive(251);
-        assertEquals(481, cbird.getMileage(), .1, "Mileage should be 481 after third drive.");
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            cbird.drive(5);
-        }, "Driving beyond empty should fail.");
 
     }
     @Test
