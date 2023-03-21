@@ -44,5 +44,7 @@ public class ChevroletBird extends ElectricCar implements Flying{
             throw new IllegalArgumentException();
         }
         decreaseCharge(miles);
+
+        WingsExtended = true; 
     }
 }
