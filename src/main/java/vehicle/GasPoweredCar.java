@@ -27,11 +27,11 @@ public abstract class GasPoweredCar extends Car {
     }
 
     public void drive(double miles) {
-        if(miles <= 0 || miles > getRemainingRange()) {
+        if(miles < 0 || miles > getRemainingRange()) {
             throw new IllegalArgumentException();
         }
         addMileage(miles);
-        decreaseFuelLevel(miles/getMPG());
+        decreaseFuelLevel(miles);
     }
 
     public double getMPG() {
@@ -55,14 +55,14 @@ public abstract class GasPoweredCar extends Car {
     }
 
     public void refillTank(double gallons) {
-        if(gallons <= 0 || gallons + fuelLevel > fuelCapacity) {
+        if(gallons < 0 || gallons + fuelLevel > fuelCapacity) {
             throw new IllegalArgumentException();
         }
         fuelLevel += gallons;
     }
 
     protected void decreaseFuelLevel(double miles) {
-        fuelLevel -= miles/mpg;
+        fuelLevel -= miles/getMPG();
     }
 
 }

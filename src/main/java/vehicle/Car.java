@@ -6,6 +6,10 @@ public abstract class  Car {
     private String c_model;
     private double c_mileage;
     public Car(String make, String model, double startingMileage){
+        if (startingMileage<0 ){
+            throw new IllegalArgumentException("Can't have negative amount");
+        }
+        
         c_make = make;
         c_model = model;
         c_mileage = startingMileage;
@@ -50,8 +54,8 @@ public abstract class  Car {
                 throw new IllegalArgumentException("Can't have negative amount");
             }
         }
-        int numdays =0;
-        for (;canDrive(milesEachDay.get(numdays));numdays++){
+        int numdays;
+        for (numdays=0;numdays<milesEachDay.size()&&canDrive(milesEachDay.get(numdays));numdays++){
             drive(milesEachDay.get(numdays));
         }
         return numdays;

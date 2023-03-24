@@ -5,7 +5,7 @@ public class ChevroletBird extends ElectricCar implements Flying{
     private boolean WingsExtended = false;
 
     public ChevroletBird(double startingMileage){
-        super("Cheverolet", "Bird",startingMileage, 250);
+        super("Chevrolet", "Bird",startingMileage, 250);
         WingsExtended = false;
     }
 
@@ -32,7 +32,7 @@ public class ChevroletBird extends ElectricCar implements Flying{
             throw new IllegalArgumentException();
         }
 
-        return true;
+        return canDrive(miles);
     }
 
     public void fly(double miles){
